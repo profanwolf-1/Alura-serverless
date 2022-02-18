@@ -16,15 +16,13 @@ function filtrarMaiorIdade(idade) {
   return pacientes.filter(({idade: _idade}) => _idade > idade)
 }
 module.exports.listarPacientes = async (event) => {
-  const {pacienteId} = event
-  const paciente = acharPaciente(pacienteId);
-  const statusCode = paciente ? 200 : 400;
-  const resposta = paciente ? paciente : "Paciente não encontrado";
+  const {idade} = event
+  const paciente = filtrarMaiorIdade(idade);
   return {
-    statusCode,
+    statusCode: 200,
     body: JSON.stringify(
       {
-        resposta
+       paciente 
       },
       null,
       2
