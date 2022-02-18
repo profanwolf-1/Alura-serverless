@@ -1,0 +1,23 @@
+{
+  "name": "cadastro-pacientes",
+  "version": "1.0.0",
+  "description": "Rep para treinar serverless ALURA",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeBarroso-sys/Alura-serverless.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuilhermeBarroso-sys/Alura-serverless/issues"
+  },
+  "homepage": "https://github.com/GuilhermeBarroso-sys/Alura-serverless#readme",
+  "devDependencies": {
+    "serverless-offline": "^6.5.0"
+  }
+}
