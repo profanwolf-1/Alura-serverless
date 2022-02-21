@@ -14,6 +14,10 @@ Rep para treinar serverless ALURA
 ## Comandos utilizados
 
 ```py
+
+#Iniciar um projeto (Node.js)
+serverless create --template aws-nodejs --path nomedapasta
+
 # Ver logs
 sls logs -f nomeDaFuncao --tail
 
