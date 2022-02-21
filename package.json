@@ -19,5 +19,8 @@
   "homepage": "https://github.com/GuilhermeBarroso-sys/Alura-serverless#readme",
   "devDependencies": {
     "serverless-offline": "^6.5.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1077.0"
   }
 }

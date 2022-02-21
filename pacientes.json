@@ -1,0 +1,29 @@
+{
+    "PACIENTES": [
+        {
+            "PutRequest": {
+                "Item": {
+                    "data_nascimento": {
+                        "S": "1984-01-01"
+                    },
+                    "email": {
+                        "S": "gui@gmail.com"
+                    },
+                    "nome": {
+                        "S": "Gui"
+                    },
+                    "paciente_id": {
+                        "S": "1234"
+                    },
+                    "status": {
+                        "BOOL": true
+                    },
+                    "telefone": {
+                        "S": "249993633462"
+                    }
+                }
+                
+            }
+        }
+    ]
+}
