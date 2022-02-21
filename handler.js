@@ -8,7 +8,7 @@ for(let p = 0; p < 10; p++) {
   })
 }
 
-const { DynamoDB } = require('aws-sdk');
+const {v4: uuid} = require("uuid")
 const AWS = require('aws-sdk')
 const params = {
   TableName: 'PACIENTES'
@@ -75,6 +75,28 @@ module.exports.obterPaciente = async (event) => {
         message: err.message ? err.message : 'Unknown error'
       })
     }
+  }
+}
+
+module.exports.cadastrarPaciente = async (event) => {
+  const {nome, data_nascimento, email, telefone} = JSON.parse(event.body);
+  const paciente = {
+    paciente_id: uuid(),
+    nome,
+    data_nascimento,
+    email,
+    telefone,
+    status: true,
+    criado_em: new Date().getTime(),
+    atualizado_em: new Date().getTime()
+  }
+
+  await dynamoDB.put({
+    TableName: "PACIENTES",
+    Item: paciente
+  }).promise()
+  return {
+    statusCode: 201
   }
 }
 
