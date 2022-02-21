@@ -31,6 +31,12 @@ functions:
       - http:
           path: pacientes/{id}
           method: get
+  cadastrarPaciente:
+    handler: handler.cadastrarPaciente
+    events:
+      - http:
+          path: pacientes
+          method: post
 
 resources:
   Resources:
