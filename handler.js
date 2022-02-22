@@ -134,3 +134,27 @@ module.exports.atualizarPaciente = async (event) => {
   }
 }
 
+module.exports.excluirPaciente = async (event) => {
+  const { id } = event.pathParameters
+  try {
+    await dynamoDB
+    .delete({
+      ...params,
+      Key: {
+        paciente_id: id
+      },
+        ConditionExpression: 'attribute_exists(paciente_id)',
+    }).promise()
+
+    return {
+      statusCode: 204,
+    }
+  } catch(err) {
+    return {
+      statusCode: 400,
+      body: err.message
+    }
+    
+  }
+}
+
