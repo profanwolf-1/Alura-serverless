@@ -100,3 +100,37 @@ module.exports.cadastrarPaciente = async (event) => {
   }
 }
 
+module.exports.atualizarPaciente = async (event) => {
+  const { id } = event.pathParameters
+  const {nome, data_nascimento, email, telefone} = JSON.parse(event.body)
+  try {
+    await dynamoDB
+    .update({
+      ...params,
+      Key: {
+        paciente_id: id
+      },
+      UpdateExpression:
+        'SET nome = :nome, data_nascimento = :dt, email = :email,' + ' telefone = :telefone, atualizado_em = :atualizado_em',
+        ConditionExpression: 'attribute_exists(paciente_id)',
+        ExpressionAttributeValues: {
+          ':nome': nome,
+          ':dt': data_nascimento,
+          ':email': email,
+          ':telefone': telefone,
+          ':atualizado_em': new Date().getDate().toString()
+        }
+    }).promise()
+
+    return {
+      statusCode: 204,
+    }
+  } catch(err) {
+    return {
+      statusCode: 400,
+      body: err.message
+    }
+    
+  }
+}
+

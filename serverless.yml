@@ -39,6 +39,13 @@ functions:
           path: pacientes
           method: post
 
+  atualizarPaciente:
+    handler: handler.atualizarPaciente
+    events:
+      - http:
+          path: pacientes/{id}
+          method: put
+
 resources:
   Resources:
     PacientesTable:
