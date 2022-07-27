@@ -1,2 +1,2 @@
 # Alura-serverless
-Rep para treinar serverless ALURA
+Rep para treinar serverless ALURA :D
